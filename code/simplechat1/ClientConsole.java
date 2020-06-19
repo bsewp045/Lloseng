@@ -69,9 +69,11 @@ public class ClientConsole implements ChatIF
   {
     try
     {
+
       BufferedReader fromConsole =
         new BufferedReader(new InputStreamReader(System.in));
       String message;
+
 
       while (true)
       {
@@ -158,8 +160,7 @@ public class ClientConsole implements ChatIF
     int port = 0;  //The port number
     String loginId = "";
 
-    try
-    {
+    try{
       if(args.length == 0){
         System.out.println("No login ID specified. Conenction aborted.");
       }else if(args.length == 3){
@@ -179,7 +180,7 @@ public class ClientConsole implements ChatIF
     }
 
 
-    ClientConsole chat= new ClientConsole(host, DEFAULT_PORT);
+    ClientConsole chat= new ClientConsole(host, port, loginId);
     chat.accept();  //Wait for console data
   }
 }

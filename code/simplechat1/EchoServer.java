@@ -1,9 +1,10 @@
 // This file contains material supporting section 3.7 of the textbook:
 // "Object Oriented Software Engineering" and is issued under the open-source
 // license found at www.lloseng.com
-import common.*;
+
 import java.io.*;
 import ocsf.server.*;
+import common.*;
 
 /**
  * This class overrides some of the methods in the abstract
@@ -24,7 +25,12 @@ public class EchoServer extends AbstractServer
    */
   final public static int DEFAULT_PORT = 5555;
 
+  //Instance variables************************************************
+  /**
+  *The interface type variable
+  */
   ChatIF serverUI;
+
 
   //Constructors ****************************************************
 
@@ -35,6 +41,7 @@ public class EchoServer extends AbstractServer
    */
   public EchoServer(int port)
   {
+
     super(port);
     serverUI = new ServerConsole(port, this);
   }
@@ -51,6 +58,7 @@ public class EchoServer extends AbstractServer
   public void handleMessageFromClient
     (Object msg, ConnectionToClient client)
   {
+
     String message = (String) msg;
     if( message.length() >= 8 && (message.substring(0,6).equals("#login")) ){
       if(client.getInfo(client.toString()) == null){
@@ -81,6 +89,7 @@ public class EchoServer extends AbstractServer
       }
 
     }
+
   }
 
   public void handleMessageFromServerUI(Object msg){
